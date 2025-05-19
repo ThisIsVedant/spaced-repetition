@@ -24,15 +24,20 @@ export default function StarBackground() {
                 x: Math.random() * width,
                 y: Math.random() * height,
                 radius: Math.random() * 1.5 + 0.5,
-                speed: Math.random() * 1 + 0.5,
+                speed: Math.random() + 0.5,
                 opacity: Math.random()
             }
         }
 
         function drawStar(star: any) {
+            const isDarkMode = document.documentElement.classList.contains("dark")
+
+            const lightColor = `rgba(181, 58, 181, ${star.opacity})`
+            const darkColor = `rgba(255, 255, 255, ${star.opacity})`
+
             ctx.beginPath()
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2)
-            ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
+            ctx.fillStyle = isDarkMode ? darkColor : lightColor
             ctx.fill()
         }
 

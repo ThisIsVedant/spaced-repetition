@@ -8,11 +8,9 @@ interface ReviewHeatmapProps {
 }
 
 export function ReviewHeatmap({ logs }: ReviewHeatmapProps) {
-  // Get dates for the last 3 months
   const today = new Date()
   const startDate = startOfWeek(subMonths(today, 3))
 
-  // Create a map of dates to review counts
   const reviewsByDate = new Map<string, number>()
 
   logs.forEach((log) => {
@@ -20,13 +18,12 @@ export function ReviewHeatmap({ logs }: ReviewHeatmapProps) {
     reviewsByDate.set(date, (reviewsByDate.get(date) || 0) + 1)
   })
 
-  // Generate calendar grid
   const weeks: Date[][] = []
   let currentWeek: Date[] = []
 
-  // Generate days for 3 months (approximately 13 weeks)
-  for (let i = 0; i < 91; i++) {
+  for (let i = 0; i < 93; i++) {
     const date = addDays(startDate, i)
+    console.log(date)
 
     if (date > today) {
       break
@@ -39,12 +36,12 @@ export function ReviewHeatmap({ logs }: ReviewHeatmapProps) {
 
     currentWeek.push(date)
 
-    if (i === 90 || date.getTime() === today.getTime()) {
+    if (i === 91 || date.getTime() === today.getTime()) {
       weeks.push(currentWeek)
+      console.log(i,date, today,"hei")
     }
   }
 
-  // Get color intensity based on review count
   const getColorIntensity = (count: number) => {
     if (count === 0) return "bg-muted"
     if (count < 3) return "bg-emerald-200 dark:bg-emerald-900"
@@ -53,7 +50,6 @@ export function ReviewHeatmap({ logs }: ReviewHeatmapProps) {
     return "bg-emerald-500 dark:bg-emerald-600"
   }
 
-  // Get weekday labels
   const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
   return (

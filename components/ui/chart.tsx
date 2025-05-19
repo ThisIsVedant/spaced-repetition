@@ -37,7 +37,7 @@ export function BarChart({
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey={index} />
                 <YAxis width={yAxisWidth} />
-                <Tooltip formatter={(value: any) => valueFormatter(Number(value))} />
+                <Tooltip formatter={(value: any) => valueFormatter(Number(value))} labelStyle={{color: '#000000'}}/>
                 <Legend />
                 {categories.map((cat, i) => (
                     <Bar key={cat} dataKey={cat} fill={colors[i % colors.length]} />

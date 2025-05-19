@@ -2,7 +2,7 @@
 
 A beautifully crafted, fully functional flashcard web app that helps you study smarter using spaced repetition. Built with **Next.js**, **Tailwind CSS**, and enhanced with animations, theme toggle, import/export support, and falling star background.
 
-[🎯 Live Demo](https://space-rep.vercel.app)
+[🎯 Live Demo](https://space-rep-rho.vercel.app/)
 
 ---
 

@@ -144,10 +144,10 @@ export function ImportExportDialog({ open, onOpenChange }: ImportExportDialogPro
         ) : (
           <Tabs defaultValue="import" className="w-full">
             <TabsList className="grid w-full grid-cols-2 gradient-primary">
-              <TabsTrigger value="import" className="data-[state=active]:bg-white/20">
+              <TabsTrigger value="import" className="data-[state=active]:bg-white/20 text-white/20">
                 <Upload className="mr-2 h-4 w-4" /> Import
               </TabsTrigger>
-              <TabsTrigger value="export" className="data-[state=active]:bg-white/20">
+              <TabsTrigger value="export" className="data-[state=active]:bg-white/20 text-white/20">
                 <Download className="mr-2 h-4 w-4" /> Export
               </TabsTrigger>
             </TabsList>

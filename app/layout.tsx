@@ -6,6 +6,7 @@ import { SpacedRepProvider } from "@/components/spaced-rep-provider"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Toaster } from "@/components/ui/toaster"
 import StarBackground from "@/components/StarBackground";
+import SplashScreen from "@/components/SplashScreen"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SpacedRepProvider>
+            <SplashScreen />
             <StarBackground />
             <div className="min-h-screen flex flex-col">
               <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-10">

@@ -96,7 +96,7 @@ export function StatsDashboard() {
   const last7Days = Array.from({ length: 7 }, (_, i) => {
     const date = new Date()
     date.setDate(date.getDate() - i)
-    date.setHours(0, 0, 0, 0)
+    date.setHours(10, 0, 0, 0)
     return date
   }).reverse()
 
@@ -105,7 +105,7 @@ export function StatsDashboard() {
     const dayStats = dailyStats[dayStr] || { known: 0, unknown: 0 }
 
     return {
-      name: date.toLocaleDateString("en-US", { weekday: "short" }),
+      name: date.toLocaleDateString("en-IN", { weekday: "short" }),
       known: dayStats.known,
       unknown: dayStats.unknown,
       total: dayStats.known + dayStats.unknown,
@@ -119,8 +119,6 @@ export function StatsDashboard() {
 
   return (
       <div className="space-y-8">
-
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card className="gradient-card border-primary/20 hover:shadow-lg transition-shadow">
             <CardHeader className="pb-2">
@@ -177,7 +175,7 @@ export function StatsDashboard() {
                     data={dailyReviewData}
                     index="name"
                     categories={["known", "unknown"]}
-                    colors={["#10B981", "#F43F5E"]}
+                    colors={["#A855F7","#fe6e8b"]}
                     valueFormatter={(value) => `${value} cards`}
                     yAxisWidth={30}
                     height={350}
@@ -198,7 +196,7 @@ export function StatsDashboard() {
                     index="name"
                     valueFormatter={(value) => `${value} reviews`}
                     category="value"
-                    colors={["#10B981", "#F43F5E"]}
+                    colors={["#A855F7","#fe6e8b"]}
                     className="h-80"
                 />
               </CardContent>
@@ -220,7 +218,7 @@ export function StatsDashboard() {
 
         <div className="flex flex-col items-center mt-8">
           <h3 className="text-lg font-medium mb-2">Recent Activity</h3>
-          <div className="w-full max-w-md space-y-2">
+          <div className="w-full space-y-2">
             {reviewLogs
                 .slice(-5)
                 .reverse()
@@ -238,7 +236,7 @@ export function StatsDashboard() {
                         </div>
                         <div className="flex items-center gap-2">
                     <span className={log.known ? "text-green-500" : "text-red-500"}>
-                      {log.known ? "Known" : "Unknown"}
+                      {log.known ? "Confident" : "Needs Work"}
                     </span>
                           <span className="text-xs text-muted-foreground">
                       {formatDistanceToNow(new Date(log.date), { addSuffix: true })}
